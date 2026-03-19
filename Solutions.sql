@@ -1,4 +1,4 @@
--- Monday Coffee -- Data Analysis 
+-- Donut&Co -- Data Analysis 
 
 SELECT * FROM city;
 SELECT * FROM products;
@@ -8,21 +8,21 @@ SELECT * FROM sales;
 -- Reports & Data Analysis
 
 
--- Q.1 Coffee Consumers Count
--- How many people in each city are estimated to consume coffee, given that 25% of the population does?
+-- Q.1 Donut Consumers Count
+-- How many people in each city are estimated to consume Donut, given that 25% of the population does?
 
 SELECT 
 	city_name,
 	ROUND(
 	(population * 0.25)/1000000, 
-	2) as coffee_consumers_in_millions,
+	2) as donut_consumers_in_millions,
 	city_rank
 FROM city
 ORDER BY 2 DESC
 
 -- -- Q.2
--- Total Revenue from Coffee Sales
--- What is the total revenue generated from coffee sales across all cities in the last quarter of 2023?
+-- Total Revenue from Donut Sales
+-- What is the total revenue generated from Donut sales across all cities in the last quarter of 2023?
 
 
 SELECT 
@@ -53,7 +53,7 @@ ORDER BY 2 DESC
 
 -- Q.3
 -- Sales Count for Each Product
--- How many units of each coffee product have been sold?
+-- How many units of each Donut product have been sold?
 
 SELECT 
 	p.product_name,
@@ -92,7 +92,7 @@ ORDER BY 2 DESC
 
 
 -- -- Q.5
--- City Population and Coffee Consumers (25%)
+-- City Population and Donut Consumers (25%)
 -- Provide a list of cities along with their populations and estimated coffee consumers.
 -- return city_name, total current cx, estimated coffee consumers (25%)
 
@@ -305,7 +305,7 @@ AS
 	SELECT 
 		city_name, 
 		estimated_rent,
-		ROUND((population * 0.25)/1000000, 3) as estimated_coffee_consumer_in_millions
+		ROUND((population * 0.25)/1000000, 3) as estimated_donut_consumer_in_millions
 	FROM city
 )
 SELECT 
@@ -313,7 +313,7 @@ SELECT
 	total_revenue,
 	cr.estimated_rent as total_rent,
 	ct.total_cx,
-	estimated_coffee_consumer_in_millions,
+	estimated_donut_consumer_in_millions,
 	ct.avg_sale_pr_cx,
 	ROUND(
 		cr.estimated_rent::numeric/
@@ -332,7 +332,7 @@ City 1: Pune
 	3.Average sales per customer is also high.
 
 City 2: Delhi
-	1.Highest estimated coffee consumers at 7.7 million.
+	1.Highest estimated Donut consumers at 7.7 million.
 	2.Highest total number of customers, which is 68.
 	3.Average rent per customer is 330 (still under 500).
 
