@@ -1,4 +1,4 @@
--- Monday Coffee SCHEMAS
+-- Donut&Co SCHEMAS
 
 DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS customers;
